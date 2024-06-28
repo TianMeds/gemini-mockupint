@@ -18,6 +18,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { useUser } from '@clerk/nextjs';
 import moment from 'moment/moment';
 import { db } from '@/utils/db';
+import { useRouter } from 'next/navigation';
   
 
 const AddInterview = () => {
@@ -29,6 +30,7 @@ const AddInterview = () => {
     const [loading, setLoading] =useState(false);
     const [jsonResponse, setJsonResponse] = useState([]);
     const {user} = useUser();
+    const router = useRouter();
  
     const onSubmit =async(e) => {
         setLoading(true);
@@ -45,7 +47,7 @@ const AddInterview = () => {
         if(MockJsonResp) { 
             const resp = await db.insert(MockPreparation)   
             .values({
-                mockId: uuidv4,
+                mockId: uuidv4(),
                 jsonMockResp: MockJsonResp,
                 jobPosition: jobPosition,
                 jobDescription: jobDescription,
@@ -55,6 +57,11 @@ const AddInterview = () => {
             }).returning({mockId:MockPreparation.mockId})
     
             console.log(resp)
+            if(resp){
+                setOpenDialog(false);
+                router.push('/dashboard/interview/'+resp[0]?.mockId)
+            }
+
         }
 
         else {
