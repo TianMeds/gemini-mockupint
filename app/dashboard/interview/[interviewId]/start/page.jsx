@@ -6,6 +6,8 @@ import { eq } from 'drizzle-orm'
 import { MockPreparation } from '@/utils/schema'
 import QuestionSection from '@/app/dashboard/_component/QuestionSection'
 import AnswerSection from '@/app/dashboard/_component/AnswerSection'
+import { Button } from '@/components/ui/button'
+import Link from 'next/link'
 
 const StartInterview = ({ params }) => {
 
@@ -36,13 +38,39 @@ const StartInterview = ({ params }) => {
     }
 
     return (
-        <div className='grid grid-cols-1 md:grid-cols-2'>
-            <QuestionSection interviewQuestion={interviewQuestion}
-            questionIndex={questionIndex}
-            />
 
-            <AnswerSection/>
+        <div>
+            <div className='grid grid-cols-1 md:grid-cols-2'>
+                <QuestionSection 
+                    interviewQuestion={interviewQuestion}
+                    questionIndex={questionIndex}
+                />
+
+                <AnswerSection
+                    interviewQuestion={interviewQuestion}
+                    questionIndex={questionIndex}
+                    interviewData={interviewData}
+                />
+            </div>
+            <div className='flex justify-end gap-6'>
+                {questionIndex > 0 &&  
+                    <Button onClick={() => setQuestionIndex(questionIndex-1)}>Previous Question</Button> 
+                }
+               
+                {questionIndex != interviewQuestion?.length-1 &&  
+                    <Button onClick={() => setQuestionIndex(questionIndex+1)}>Next Question</Button> 
+                    
+                }
+                {questionIndex == interviewQuestion?.length-1 &&  
+
+                    <Link href={'/dashboard/interview/'+interviewData?.mockId+"/feedback"}>
+                        <Button onClick>End Interview</Button> 
+                    </Link>
+                }
+            </div>
         </div>
+
+        
     )
 }
 
