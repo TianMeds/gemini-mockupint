@@ -14,10 +14,10 @@ const Header = () => {
     }, [path]) // Add path as a dependency to re-run effect when path changes
 
     return (
-        <div className='flex p-4 items-center justify-between bg-gray-900 shadow-sm'>
+        <div className='flex p-4 items-center justify-between bg-gray-900 shadow-sm w-full'>
             <Image src={'/FourthLogo.svg'} width={200} height={100} alt='logo' className="m-0 p-0" />
 
-            <ul className='hidden md:flex gap-4'>
+            <ul className='hidden md:flex gap-4 mr-40'>
                 <li className={` text-white font-normal hover:text-white hover:font-bold transition-all cursor-pointer ${path === '/dashboard' && 'text-white font-bold'}`}>
                     <Link href="/dashboard">Dashboard</Link>
                 </li>
@@ -26,9 +26,6 @@ const Header = () => {
                 </li>
                 <li className={`text-white font-normal hover:text-white hover:font-bold transition-all cursor-pointer ${path === '/dashboard/upgrade' && 'text-white font-bold'}`}>
                     <Link href="/dashboard/upgrade">Upgrade</Link>
-                </li>
-                <li className={`text-white font-normal hover:text-white hover:font-bold transition-all cursor-pointer ${path === '/dashboard/how' && 'text-white font-bold'}`}>
-                    <Link href="/dashboard/how">How it works</Link>
                 </li>
             </ul>
             <UserButton/>
