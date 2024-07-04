@@ -54,17 +54,17 @@ const StartInterview = ({ params }) => {
             </div>
             <div className='flex justify-end gap-6'>
                 {questionIndex > 0 &&  
-                    <Button onClick={() => setQuestionIndex(questionIndex-1)}>Previous Question</Button> 
+                    <Button className="bg-white text-black hover:bg-gray-200" onClick={() => setQuestionIndex(questionIndex-1)}>Previous Question</Button> 
                 }
                
                 {questionIndex != interviewQuestion?.length-1 &&  
-                    <Button onClick={() => setQuestionIndex(questionIndex+1)}>Next Question</Button> 
+                    <Button className="bg-white text-black hover:bg-gray-200" onClick={() => setQuestionIndex(questionIndex+1)}>Next Question</Button> 
                     
                 }
                 {questionIndex == interviewQuestion?.length-1 &&  
 
                     <Link href={'/dashboard/interview/'+interviewData?.mockId+"/feedback"}>
-                        <Button onClick>End Interview</Button> 
+                        <Button className="bg-white text-black hover:bg-gray-200" onClick>End Interview</Button> 
                     </Link>
                 }
             </div>

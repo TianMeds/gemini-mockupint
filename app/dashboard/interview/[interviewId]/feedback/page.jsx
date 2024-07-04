@@ -36,18 +36,18 @@ const Feedback = ({params}) => {
   return (
     <div className='p-10'>
       {feedbackList?.length == 0 ? 
-        <h2 className='font-bold text-xl text-gray-500'>No Interview Feedback Record Found</h2>
+        <h2 className='font-bold text-xl text-gray-400'>No Interview Feedback Record Found</h2>
 
         : 
       
         <>
 
-          <h2 className='text-3xl font-bold text-green-500'>Congratulations!</h2>
-          <h2 className='text-2xl font-bold'>Here is your interview Feedback</h2>
+          <h2 className='text-3xl font-bold text-green-300'>Congratulations!</h2>
+          <h2 className='text-2xl font-bold text-white'>Here is your interview Feedback</h2>
       
           <h2 className='text-blue-700 text-lg my-3'>Your overall interview rating: <strong>7/10</strong></h2>
 
-          <h2 className='text-sm text-gray-500'>Find below interview question with correct answer, Your answer and feedback for improvement</h2>
+          <h2 className='text-sm text-gray-400'>Find below interview question with correct answer, Your answer and feedback for improvement</h2>
         
           {feedbackList&&feedbackList.map((item, index) => (
             <Collapsible key={index} className='mt-7'>
@@ -72,7 +72,7 @@ const Feedback = ({params}) => {
         </>
       }
 
-      <Button onClick={() => router.replace('/dashboard')}>Go Home</Button>
+      <Button className="bg-white text-black hover:bg-gray-200 mt-4" onClick={() => router.replace('/dashboard')}>Go Home</Button>
     </div>
   )
 }

@@ -39,11 +39,11 @@ const AnswerSection = ({interviewQuestion, questionIndex, interviewData }) => {
         if(!isRecording&&userAnswer.length>10) {
             UpdateUserAnswer();
         }
-        // if(userAnswer?.length<10){
-        //     setLoading(false)
-        //     toast('Error while saving your answer. Please record again.')
-        //     return;
-        // }
+        if(userAnswer?.length<10){
+            setLoading(false)
+            toast('Error while saving your answer. Please record again.')
+            return;
+        }
       }, [userAnswer])
 
 
@@ -94,7 +94,7 @@ const AnswerSection = ({interviewQuestion, questionIndex, interviewData }) => {
   return (
     <div className='flex items-center justify-center flex-col'>
         <div className='flex flex-col mt-20 justify-center items-center bg-black rounded-lg p-5'>
-            <Image src={WebcamImage} width={200} height={200} className='absolute'/>
+            <Image src={WebcamImage} width={200} height={200} className='absolute' alt='Camera Icon'/>
             <Webcam
                 mirrored={true}
                 style={{

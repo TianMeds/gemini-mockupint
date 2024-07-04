@@ -35,13 +35,13 @@ const Interview = ({params}) => {
 
     return (
         <div className='my-10 flex items-center justify-center flex-col'>
-            <h2 className='font-bold text-2xl'>Let's Get Started</h2>
+            <h2 className='font-bold text-2xl text-white'>Let's Get Started</h2>
             <div className='grid grid-cols-1 md:grid-cols-2 gap-10'>
                 <div className='flex flex-col my-2 gap-5 p-5'>
                     <div className='flex flex-col p-5 gap-5 rounded-lg border'>
-                        <h2 className='text-lg'><strong>Job Role/Job Position:</strong> {interviewData.jobPosition}</h2>
-                        <h2 className='text-lg'><strong>Job Description:</strong> {interviewData.jobDescription}</h2>
-                        <h2 className='text-lg'><strong>Job Experience:</strong> {interviewData.jobExperience}</h2>
+                        <h2 className='text-lg text-white'><strong>Job Role/Job Position:</strong> {interviewData.jobPosition}</h2>
+                        <h2 className='text-lg text-white'><strong>Job Description:</strong> {interviewData.jobDescription}</h2>
+                        <h2 className='text-lg text-white'><strong>Job Experience:</strong> {interviewData.jobExperience}</h2>
                     </div>
 
                     <div className='p-5 border rounded-lg border-yellow-300 bg-yellow-100'>
@@ -64,7 +64,7 @@ const Interview = ({params}) => {
                     :
                     <>
                         <WebcamIcon className='h-80 w-full my-7 p-20 bg-secondary rounded-lg border'/>
-                        <Button className="w-full" onClick={() => setWebcamEnabled(true)}>Enable Webcam and microphone</Button>
+                        <Button className="w-full bg-white text-black hover:bg-gray-200" onClick={() => setWebcamEnabled(true)}>Enable Webcam and microphone</Button>
                     </>
                     }
                 </div>
@@ -72,7 +72,7 @@ const Interview = ({params}) => {
             
             <div className='w-full flex justify-end mt-5'>
                 <Link href={'/dashboard/interview/'+params.interviewId+'/start'}>
-                    <Button>Start Interview</Button>
+                    <Button className="bg-white text-black hover:bg-gray-200">Start Interview</Button>
                 </Link>
             </div>
         </div>
