@@ -3,7 +3,6 @@ import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Toaster } from "sonner";
 import Head from "next/head";
-import Favicon from '../app/SecondLogo.ico'
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,7 +17,7 @@ export default function RootLayout({ children }) {
       <html lang="en">
         <body className={inter.className}>
         <Head>
-          <link rel="shortcut icon" href={Favicon} />
+          <link rel="shortcut icon" href="../public/SecondLogo.svg" />
         </Head>
           <Toaster/>
           {children}

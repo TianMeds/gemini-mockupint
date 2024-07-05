@@ -41,11 +41,11 @@ const AnswerSection = ({interviewQuestion, questionIndex, interviewData }) => {
         if(!isRecording&&userAnswer.length>10) {
             UpdateUserAnswer();
         }
-        // if(userAnswer?.length<10){
-        //     setLoading(false)
-        //     toast('Error while saving your answer. Please record again.')
-        //     return;
-        // }
+        if(userAnswer?.length<10){
+            setLoading(false)
+            toast('Error while saving your answer. Please record again.')
+            return;
+        }
       }, [userAnswer])
 
 
