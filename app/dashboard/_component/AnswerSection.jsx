@@ -43,7 +43,7 @@ const AnswerSection = ({interviewQuestion, questionIndex, interviewData }) => {
         }
         if(userAnswer?.length<10){
             setLoading(false)
-            toast('Error while saving your answer. Please record again.')
+            // toast('Error while saving your answer. Please record again.')
             return;
         }
       }, [userAnswer])
